@@ -21,6 +21,7 @@ public class LoanRepositoryFile implements loanManagement {
     private Map<String, Loan> Loans = new HashMap<>();
     private String PATH = "C:\\Users\\User\\Downloads\\VehicleManageSystem\\";
     String filename = PATH + "Loan.dat";
+    private static long nextLoanID = 0;
 
     public LoanRepositoryFile(){
         File file = new File(filename);
@@ -47,7 +48,8 @@ public class LoanRepositoryFile implements loanManagement {
     }
 
     @Override
-    public Loan addLoan(String loanID, String memberID, String vehicleID) {
+    public Loan addLoan(String memberID, String vehicleID) {
+        String loanID = "LA" + ++nextLoanID;
         Loan l = new Loan(loanID,memberID,vehicleID);
         Loans.put(loanID,new Loan(loanID,memberID,vehicleID));
         writeToFile();

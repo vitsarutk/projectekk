@@ -27,6 +27,7 @@ public class MemberRepositoryMem implements memberManagement {
     public Member addMember(String memberID, String memberName, String memberTel) {
        return members.put(memberID,new Member(memberID,memberName,memberTel));
     }
+    @Override
     public Member deleteMember(Member m){
         try {
             members.remove(m.getMemberID(),m);

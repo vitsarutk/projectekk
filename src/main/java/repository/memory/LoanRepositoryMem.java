@@ -18,10 +18,11 @@ import java.util.stream.Stream;
  */
 public class LoanRepositoryMem implements loanManagement {
     private Map<String, Loan> Loans = new HashMap<>();
-
+    private static long nextLoanID = 0;
 
     @Override
-    public Loan addLoan(String loanID, String memberID, String vehicleID) {
+    public Loan addLoan(String memberID, String vehicleID) {
+        String loanID = "LA" + ++nextLoanID;
         return Loans.put(loanID,new Loan(loanID,memberID,vehicleID));
     }
 

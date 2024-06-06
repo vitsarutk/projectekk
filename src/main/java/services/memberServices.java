@@ -50,9 +50,9 @@ public class memberServices {
     public Stream<Member> getAllMember(){
         return memberRepo.getAllMember();
     }
-    public Loan addLoan(String loanID, String memberID, String vehicleID){
-        if (loanID != null || memberID != null || vehicleID != null){
-            return loanRepo.addLoan(loanID,memberID,vehicleID);
+    public Loan addLoan(String memberID, String vehicleID){
+        if (memberID != null || vehicleID != null){
+            return loanRepo.addLoan(memberID,vehicleID);
         }
         return null;
     }
